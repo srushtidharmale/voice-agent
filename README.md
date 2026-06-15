@@ -72,10 +72,26 @@ npm run dev
 - Audio uploads capped at 3MB; sessions capped at 30 turns.
 - Supabase RLS enabled with no anonymous policies — only the service key can access `sessions`.
 
+## Live demo (GitHub Pages)
+
+After pushing to `main`, the frontend is deployed automatically:
+
+**https://srushtidharmale.github.io/voice-agent/**
+
+> `http://localhost:5173` only works on your computer during local development.
+> GitHub hosts the public site at the URL above.
+
+### One-time GitHub setup
+
+1. Repo **Settings → Pages → Build and deployment → Source**: choose **GitHub Actions**.
+2. Repo **Settings → Secrets and variables → Actions**: add `VITE_API_URL` with your
+   deployed backend URL (e.g. `https://your-app.onrender.com`).
+3. On the backend, set `ALLOWED_ORIGIN=https://srushtidharmale.github.io`.
+
 ## Deployment
 
 1. **Backend → Render/Railway**: new web service from `backend/`, build command
    `pip install -r requirements.txt`, start command
    `uvicorn main:app --host 0.0.0.0 --port $PORT`. Add all env vars from the table above.
-2. **Frontend → Vercel**: import `frontend/`, set `VITE_API_URL` to your Render URL, deploy.
-3. Update `ALLOWED_ORIGIN` on the backend to the final Vercel URL and redeploy.
+2. **Frontend → GitHub Pages** (automatic via `.github/workflows/deploy.yml`) or Vercel.
+3. Update `ALLOWED_ORIGIN` on the backend to your frontend URL and redeploy.
