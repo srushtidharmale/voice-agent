@@ -1,0 +1,27 @@
+:root {
+  --bg: #fff8f0;
+  --bg-card: #ffffff;
+  --text: #4a3f35;
+  --accent: #ff8c42;
+  --accent-soft: #ffe3cc;
+  --accent-deep: #e8702a;
+  --user-bubble: #d8e9ff;
+  --agent-bubble: #fff1e0;
+  --danger: #e0554f;
+  --radius: 20px;
+  font: 16px/1.5 system-ui, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  min-height: 100svh;
+}
